@@ -18,6 +18,3 @@ default_args = {
 dag = DAG("Assignment", default_args=default_args, schedule_interval="0 6 * * *")
 
 t1 = PythonOperator(task_id='create_sql_table', python_callable=sql_create_table, dag=dag)
-t2 = PythonOperator(task_id='insert_sql_table', python_callable=insert_into_sql_table, dag=dag)
-
-t1 >> t2
